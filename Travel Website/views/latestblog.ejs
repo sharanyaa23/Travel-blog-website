@@ -1,0 +1,35 @@
+<% if(latestblog != null) { %>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href = "/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><%- latestblog.name %></li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <img src="/uploads/<%- latestblog.image %>" class="img-fluid sticky-top" style="top: 20px;" alt="<%- latestblog.name %>" Loading="lazy">
+        </div>
+       
+        <div class="col-12 col-md-6">
+            <div class="row">
+                <div class="col-12"><h1><%- latestblog.name %></h1></div>
+                <div class="col-12" style="white-space: pre-line;"><%- latestblog.description %></div>
+            </div>
+        </div>
+
+       <!-- Update button -->
+<div class="col-12">
+    <a href="/latestblog/<%- latestblog._id %>/update" class="btn btn-secondary">Update Blog</a>
+</div>
+
+<div class="col-12" style="margin-top: 10px;"></div>
+
+<!-- Delete button -->
+<form action="/latestblog/<%= latestblog._id %>/delete" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" class="btn btn-danger">Delete Blog</button>
+</form>
+
+<% } %>

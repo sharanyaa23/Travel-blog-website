@@ -1,0 +1,39 @@
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Update Your Blog</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead">Update your blog with new information! Fill out the form below.</p>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    
+
+    
+
+    <div class="col-8">
+        <form action="/latestblog/<%= latestblog._id %>/update" enctype="multipart/form-data" method="POST">
+
+            <div class="row g-3">
+                <div class="col-12">
+                    <label for="name" class="form-label">Name of the Place</label>
+                    <input type="text" name="name" id="name" class="form-control" value="<%= latestblog.name %>" required>
+                </div>
+                <div class="col-12">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" id="description" class="form-control" cols="30" rows="4" required><%= latestblog.description %></textarea>
+                </div>
+                <div class="col-12">
+                    <label for="image">Image</label>
+                    <input type="file" class="form-control" name="image" accept="image/">
+                </div>
+                <div class="col-12">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" value="<%= latestblog.email %>" required>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Update Blog</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
